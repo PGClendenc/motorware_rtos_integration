@@ -5,11 +5,10 @@
 	<deviceFamily value="C2000"/>
 	<codegenToolVersion value="6.2.6"/>
 	<isElfFormat value="false"/>
-	<connection value="common/targetdb/connections/TIXDS100usb_Connection.xml"/>
+	<connection value="common/targetdb/connections/TIXDS100v2_Connection.xml"/>
 	<linkerCommandFile value="TMS320F28069.cmd"/>
 	<rts value="libc.a"/>
 	<createSlaveProjects value=""/>
 	<templateProperties value="id=com.ti.rtsc.TIRTOSc2000.example_4,type=rtsc,products=com.ti.rtsc.TIRTOSc2000,platform=ti.platforms.tms320x28:$DeviceId$,buildProfile=release,isHybrid=true,configuroOptions=--compileOptions &quot;-g --optimize_with_debug&quot;,"/>
 	<isTargetManual value="false"/>
-	<origin value="c:/work/ccs/motorware_rtos_integration"/>
 </projectOptions>

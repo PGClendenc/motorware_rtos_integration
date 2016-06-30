@@ -30,8 +30,8 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 /*
- *  ======== TMS320F28069.cmd ========
- *  Define the memory block start/length for the F28069
+ *  ======== TMS320F28069M.cmd ========
+ *  Define the memory block start/length for the F28069M
  */
 
 /* 
@@ -58,12 +58,15 @@ PAGE 0 :   /* Program Memory */
     BEGIN       : origin = 0x3F7FF6, length = 0x000002     /* Used for "boot to Flash" bootloader mode. */
     CSM_PWL     : origin = 0x3F7FF8, length = 0x000008     /* CSM password locations in FLASH */
 
+	/* CAC modify from no M suffix, source for change F28069M */
+    
    FPUTABLES   : origin = 0x3FD590, length = 0x0006A0	 /* FPU Tables in Boot ROM */
    IQTABLES    : origin = 0x3FDC30, length = 0x000B50    /* IQ Math Tables in Boot ROM */
    IQTABLES2   : origin = 0x3FE780, length = 0x00008C    /* IQ Math Tables in Boot ROM */
    IQTABLES3   : origin = 0x3FE80C, length = 0x0000AA	 /* IQ Math Tables in Boot ROM */
 
-    ROM         : origin = 0x3FF3B0, length = 0x000C10     /* Boot ROM */
+    /* /CAC modify from no M suffix, source for change F2806
+	ROM         : origin = 0x3FF3B0, length = 0x000C10     /* Boot ROM */
     RESET       : origin = 0x3FFFC0, length = 0x000002     /* part of boot ROM  */
     VECTORS     : origin = 0x3FFFC2, length = 0x00003E     /* part of boot ROM  */
 
@@ -72,7 +75,9 @@ PAGE 1 :   /* Data Memory */
     M01SARAM    : origin = 0x000000, length = 0x000800     /* on-chip RAM block M0, M1 */
     PIEVECT     : origin = 0xD00,    length = 0x100
     L46SARAM    : origin = 0x00A000, length = 0x006000     /* on-chip RAM block L4-L6 */
-    L78SARAM    : origin = 0x010000, length = 0x004000     /* on-chip RAM block L7, L8 */  
+	/*  Non M chip / no istaspin: */
+    /*L78SARAM  : origin = 0x010000, length = 0x004000  */   /* on-chip RAM block L7, L8 */  
+    L78SARAM    : origin = 0x010000, length = 0x003800     /* on-chip RAM block L7, L8, From 0x13800 to 0x14000 is reserved for InstaSPIN */  
 }
 
 /*
@@ -134,7 +139,7 @@ SECTIONS
     {
         IQmath.lib<IQNexpTable.obj> (IQmathTablesRam)
     }
-    */
+	*/
 
     /*
      *  Uncomment the section below if calling the IQNasin() or IQasin()
