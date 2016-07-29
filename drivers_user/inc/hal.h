@@ -245,11 +245,6 @@ static inline void HAL_acqTimer0Int(HAL_Handle handle)
 extern void HAL_cal(HAL_Handle handle);
 
 
-//! \brief      Disables global interrupts
-//! \param[in]  handle  The hardware abstraction layer (HAL) handle
-extern void HAL_disableGlobalInts(HAL_Handle handle);
-
-
 //! \brief      Disables the watch dog
 //! \param[in]  handle  The hardware abstraction layer (HAL) handle
 extern void HAL_disableWdog(HAL_Handle handle);
@@ -981,11 +976,6 @@ extern void HAL_setupGpios(HAL_Handle handle);
 //! \brief     Sets up the peripheral clocks
 //! \param[in] handle  The hardware abstraction layer (HAL) handle
 extern void HAL_setupPeripheralClks(HAL_Handle handle);
-
-
-//! \brief     Sets up the PIE (Peripheral Interrupt Expansion)
-//! \param[in] handle  The hardware abstraction layer (HAL) handle
-extern void HAL_setupPie(HAL_Handle handle);
 
 
 //! \brief     Sets up the PLL (Phase Lock Loop)
